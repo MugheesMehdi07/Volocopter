@@ -1,6 +1,6 @@
 # Full-Stack React-Flask Application
 
-This project is a full-stack web application with a React frontend and a Flask backend, containerized using Docker. It demonstrates a basic setup for developing and deploying a React application that communicates with a Flask API.
+This project is a demo test project for volocopter with a React frontend (Typescript) and a Flask backend, containerized using Docker. 
 
 ## Project Structure
 
@@ -21,10 +21,10 @@ It creates a basic flask application with SQLite DB and tests directory.
 - .\venv\Scripts\activate
 - pip install -r requirements.txt
 - flask run
-
+```
 
 To run tests use 
-pytest tests
+`pytest tests`
 
 
 # client 
@@ -42,7 +42,7 @@ It contains typscript application with the following structure
 ```bash
 npm i
 npm run dev
-
+```
 
 
 
@@ -60,3 +60,5 @@ To build the Docker containers for the first time or after any changes to the Do
 
 ```bash
 docker-compose build
+``` 
+
