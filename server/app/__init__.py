@@ -9,6 +9,7 @@ db = SQLAlchemy(app)
 
 from app import views,models
 
+# Create the database
 with app.app_context():
     db.create_all()
     db.session.commit()

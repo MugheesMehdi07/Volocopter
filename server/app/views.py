@@ -7,6 +7,8 @@ from app.models import Mission, mission_status_dict
 
 @app.route('/mission', methods=['POST'])
 def create_mission():
+    """Create a new mission and return it as a dictionary."""
+
     data = request.json
     new_mission = Mission(name=data['name'], description=data['description'],status=data['status'])
     db.session.add(new_mission)
@@ -22,8 +24,12 @@ def create_mission():
 
 
 @app.route('/get_missions', methods=['GET'])
-def get_items():
+def get_missions():
+    """
+    Get all missions and return them as a list of dictionaries.
+    """
     missions = Mission.query.all()
+
     mission_list= []
     for mission in missions:
         m_dict = {
@@ -35,17 +41,17 @@ def get_items():
 
         mission_list.append(m_dict)
 
-    # mission_list = [{"title": mission_status_dict[int(key)]+f"({len(val)})", "tickets": val}
-    #                 for key,val in mission_status.items()]
-
-
-
     return jsonify(mission_list)
 
 
 @app.route('/mission/<int:id>', methods=['GET'])
-def get_item(mission_id):
-    mission = Mission.query.get_or_404(mission_id)
+def get_mission(id):
+    """
+    Get a mission by its id and return it as a dictionary.
+    :param id:
+    :return: mission_dict
+    """
+    mission = Mission.query.get_or_404(id)
 
     mission_dict = {
         'id': mission.id,
@@ -59,6 +65,11 @@ def get_item(mission_id):
 
 @app.route('/mission/<int:id>', methods=['DELETE'])
 def delete_item(id):
+    """
+    Delete a mission by its id and return a message.
+    :param id:
+    :return: message
+    """
     item = Mission.query.get_or_404(id)
     db.session.delete(item)
     db.session.commit()
@@ -67,6 +78,11 @@ def delete_item(id):
 
 @app.route('/mission/<int:id>', methods=['PUT'])
 def update_mission_status(id):
+    """
+    Update the status of a mission by its id and return a message.
+    :param id:
+    :return: message
+    """
     data = request.json
     mission = Mission.query.get_or_404(id)
     mission.status = data['status']

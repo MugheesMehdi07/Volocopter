@@ -1,9 +1,4 @@
 from app import db
-from enum import Enum, unique
-
-
-
-
 
 mission_status_dict = {
     1: "Pre-Flight",
@@ -13,6 +8,7 @@ mission_status_dict = {
 
 
 class Mission(db.Model):
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
     description = db.Column(db.String(120), nullable=False)
