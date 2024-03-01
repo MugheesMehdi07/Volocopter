@@ -1,46 +1,62 @@
-# Volocopter Code Challenge
+# Full-Stack React-Flask Application
 
-Our intent with this repo is to save you time when doing our code challenge. Here, you'll find a complete setup with front end and back end.
+This project is a full-stack web application with a React frontend and a Flask backend, containerized using Docker. It demonstrates a basic setup for developing and deploying a React application that communicates with a Flask API.
 
-## IMPORTANT
+## Project Structure
 
-1. Usage of this repository's code is **not** at all mandatory for the completion of our code challenge.
-2. **If you decide to use this repo** for your code challenge's response, feel free to change **anything** you want in it. Make it your own!
+- `/client`: Contains the React application built with Vite.
+- `/server`: Contains the Flask API application.
+- `docker-compose.yml`: Defines the services, networks, and volumes for container orchestration.
+- `Dockerfile` (in both frontend and backend directories): Defines the environment for running the frontend and backend.
 
-## Run the app locally
 
-### Setup
+# server structure
 
-First, make sure that the port for the `proxy` service (port `9000`) is free in case you already have other Docker containers running. You can also update it in [`docker-compose.yml`](./docker-compose.yml), if you prefer.
+It creates a basic flask application with SQLite DB and tests directory.
 
-Once the app is running, you should see it in [`http://localhost:9000`](http://localhost:9000).
+# Run Locally
 
-In order to run the repo there are a few options:
+```bash
+- python -m venv venv
+- .\venv\Scripts\activate
+- pip install -r requirements.txt
+- flask run
 
-#### Open a terminal at the root directory of the repo and execute
 
-        ./go run
+To run tests use 
+pytest tests
 
-\* Our 'go' file is just a zsh script which runs `docker compose`.
 
-alternatively, you can directly use:
+# client 
 
-        docker compose up -d
+It contains typscript application with the following structure
 
-#### Run server and client separately
+- `/pages`: Contains the Main Dashboard page of board.
+- `/components` : Contains all the tsx components of the modules.
+- `/services` : contains API calling instance and logic for services.
+- `/styles` : contains styling css files for all the component classes
+- `/types` : contains interfaces and constants of the app.
 
-- Server
+# Run Locally
 
-    In the terminal, navigate to the `/server` directory, and run:
+```bash
+npm i
+npm run dev
 
-          ./gradlew bootRun
 
-- Client
 
-    In the terminal, navigate to the `/client` directory, and run:
 
-          yarn dev
 
-### UI Designs
+## Setup and Running using Docker
 
-For convenience, the designs from the challenge are also here in this repo, at the [`ui-designs`](./ui-designs/) folder.
+- Docker
+- Docker Compose
+
+Ensure Docker and Docker Compose are installed on your system to run the application in containers.
+
+### Building the Containers
+
+To build the Docker containers for the first time or after any changes to the Dockerfiles or the application code, run:
+
+```bash
+docker-compose build
