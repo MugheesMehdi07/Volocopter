@@ -1,8 +1,8 @@
-import { mission, missionList } from '../types/ticket';
+import { mission } from '../types/ticket';
 import axiosInstance from './axios-instance';
 
 export const fetchMissions = async () => {
-    const response = await axiosInstance.get<missionList[]>('/get_missions');
+    const response = await axiosInstance.get<mission[]>('/get_missions');
     return response.data;
 };
 

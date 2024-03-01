@@ -5,7 +5,7 @@
 }
 
 .columnSpacing {
-  flex-grow: 1; /* Ensure columns take up available space */
+  flex-grow: 1; 
   display: flex;
   flex-direction: column;
 }
