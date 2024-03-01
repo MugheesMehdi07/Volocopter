@@ -5,9 +5,7 @@ import "../styles/column.css";
 
 
 
-
-
-function Column({ children, name }: { children: any; name: string }) {
+function Column({ children, name }: { children: any ; name: string }) {
   const [{ isOver }, dropref] = useDrop({
     accept: cardType.MISSION,
     drop: () => ({

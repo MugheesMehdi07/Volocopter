@@ -4,8 +4,6 @@ import Dashboard from "./pages/dashboard";
 // import TestPage from "./pages/TestPage";
 
 export const App: React.FC = () => {
-
- 
-
+  
   return  <DndProvider backend={HTML5Backend}><Dashboard /></DndProvider>;
 };

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Row, Col } from 'antd';
-import { mission, missionList } from "../types/ticket";
+import { mission } from "../types/ticket";
 import { fetchMissions } from "../services/mission-service";
 import Cards from "./cards";
 import Column from "./columns";
@@ -22,15 +22,17 @@ const columnItem = (missions : Array<mission>, columnName: string, setMissions: 
     ));
 };
 
-export const Board: React.FC = ( { missions , setMissions } ) => {
+export const Board: React.FC<{ missions: mission[], setMissions: any }> = ({ missions, setMissions }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const fetchedMissionsRef = useRef<boolean>(false);
 
   useEffect(() => {
+
+    // Fetch missions
     const loadMissions = async () => {
       try {
         if(!fetchedMissionsRef.current){
-          const fetchedMissions = await fetchMissions();
+          const fetchedMissions: mission[] = await fetchMissions();
           setMissions(fetchedMissions);
         }
        

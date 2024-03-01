@@ -2,11 +2,9 @@ import { useDrag } from "react-dnd";
 import { ColumnTypes, cardType } from "../types/constants";
 import { deleteMission, updateMission } from "../services/mission-service";
 import { mission } from "../types/ticket";
-import { Card, Modal } from 'antd';
+import { Card, Modal, notification } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import '../styles/cards.css';
-
-
 
 type obj = {
   name: {};
@@ -40,9 +38,9 @@ function Cards({
   const [{ isDragging }, drag] = useDrag({
     type: cardType.MISSION,
     item: { m_id, name, description },
-    end: async (item, monitor) => {
+    end: async (item , monitor) => {
       const dropResult = monitor.getDropResult<obj>();
-
+      
       if (dropResult) {
         const { name } = dropResult;
         const { COL1, COL2, COL3 } = ColumnTypes;
@@ -92,20 +90,31 @@ function Cards({
 
 
   const handleDelete = () => {
+
+    // confirm deletion
     Modal.confirm({
       title: 'Are you sure you want to delete this mission?',
-      // Optionally customize the modal further (e.g., add an icon)
       onOk() {
-        deleteMission(m_id) // Assuming deleteMission is your API call
+        deleteMission(m_id) 
           .then(() => {
-            setMissions(prevState => prevState.filter(mission => mission.id !== m_id));
+            setMissions((prevState: mission[]) => prevState.filter((mission: mission) => mission.id !== m_id));
+            notification.success({
+              message: 'Success',
+              description: 'Mission successfully deleted.',
+              placement: 'bottom',
+            });
           })
           .catch(error => {
             console.error("Failed to delete mission:", error);
-            // Optionally handle error state (e.g., show notification)
+            notification.error({
+              message: 'Error',
+              description: 'Error deleting Mission.',
+              placement: 'bottom',
+            });
+            
           });
       },
-      // Define onCancel if needed
+     
     });
   };
 
