@@ -1,0 +1,24 @@
+/* Cards.css */
+.card {
+    opacity: 1;
+    margin-bottom: 15px;
+    box-shadow: 1px 4px 11px -2px rgba(135,135,135,0.75);
+    border: 1px solid #ccc; /* Borders on all sides */
+    border-left-width: 5px; /* Broader left border */
+  }
+  
+  .cardDragging {
+    opacity: 0.5;
+  }
+  
+  .deleteIcon {
+    color: red;
+    cursor: pointer;
+  }
+  
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  

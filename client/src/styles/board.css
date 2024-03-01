@@ -1,0 +1,13 @@
+.boardWrapper {
+  justify-content: stretch;
+  width: 100%;
+ padding: 40px;
+}
+
+.columnSpacing {
+  flex-grow: 1; /* Ensure columns take up available space */
+  display: flex;
+  flex-direction: column;
+}
+
+  

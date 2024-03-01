@@ -1,0 +1,13 @@
+.dashboardContainer {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+  }
+  
+  .boardContainer {
+    margin-top: 16px;
+    padding-bottom: 40px;
+  }
+  

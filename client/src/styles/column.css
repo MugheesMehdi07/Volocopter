@@ -1,0 +1,22 @@
+.columnContainer {
+    background-color: #e3e7ee;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+    min-height: 500px;
+
+  }
+  
+  .columnHeader {
+    font-size: 17px;
+    color: #84878c;
+    margin-bottom: 15px;
+  }
+  
+  .dropArea {
+    width: 100%;
+    padding: 4px;
+  }
+  
